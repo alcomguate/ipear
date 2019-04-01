@@ -1,0 +1,64 @@
+﻿@model REGISTROCEL_IPEAR.Models.REG_DISPOSITIVO
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>REG_DISPOSITIVO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fech_mod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fech_mod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario_mod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario_mod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAT_COLOR.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAT_COLOR.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAT_FABRICA.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAT_FABRICA.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAT_GAMA.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAT_GAMA.descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

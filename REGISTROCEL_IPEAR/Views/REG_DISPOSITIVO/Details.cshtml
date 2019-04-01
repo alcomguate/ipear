@@ -1,0 +1,58 @@
+﻿@model REGISTROCEL_IPEAR.Models.REG_DISPOSITIVO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>REG_DISPOSITIVO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fech_mod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fech_mod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario_mod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario_mod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAT_COLOR.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAT_COLOR.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAT_FABRICA.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAT_FABRICA.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAT_GAMA.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAT_GAMA.descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+
+            <h1>I-Pear</h1>
+            <p>Julio Alan Fernando Vidaurre Farfán - 1704002004</p>
+            <p>Programación IX - Examen final.</p>
+            <div class="btn btn-info" >
+                @Html.ActionLink("Régistro de dispositivos", "Index", "REG_DISPOSITIVO", new { area = "" }, new { @color = "#ffffff" })
+            </div>
+            <div class="btn btn-info">
+                @Html.ActionLink("Reportes", "Index", "REG_DISPOSITIVO", new { area = "" })
+            </div>
+        </div>
+
+        
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

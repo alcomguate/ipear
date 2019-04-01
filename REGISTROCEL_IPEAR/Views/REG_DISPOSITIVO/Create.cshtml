@@ -1,0 +1,67 @@
+﻿@model REGISTROCEL_IPEAR.Models.REG_DISPOSITIVO
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Registrar dispositivo</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2" for="no_serie" style="text-align: left">Número de serie:</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.no_serie, new { htmlAttributes = new { @class = "form-control", @id = "no_serie" } })
+            @Html.ValidationMessageFor(model => model.no_serie, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    
+    <div class="form-group">
+        <label class="control-label col-md-2" for="gama" style="text-align: left">Gama:</label>
+        <div class="col-md-10">
+            @Html.DropDownList("gama", null, htmlAttributes: new { @class = "form-control", @id = "gama" })
+            @Html.ValidationMessageFor(model => model.gama, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="color" style="text-align: left">Color:</label>
+        <div class="col-md-10">
+            @Html.DropDownList("color", null, htmlAttributes: new { @class = "form-control", @id = "color" })
+            @Html.ValidationMessageFor(model => model.color, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="fabrica" style="text-align: left">Fábrica de ensamblaje:</label>
+        <div class="col-md-10">
+            @Html.DropDownList("fabrica_ensamblaje", null, htmlAttributes: new { @class = "form-control", @id = "fabrica" })
+            @Html.ValidationMessageFor(model => model.fabrica_ensamblaje, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-6">
+            <input type="submit" value="Grabar" class="btn btn-success" />
+        </div>
+
+        <div class="col-md-6">
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    </div>
+</div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<REGISTROCEL_IPEAR.Models.REG_DISPOSITIVO>
+
+@{
+    ViewBag.Title = "Régistro de dispositivos";
+}
+
+<h2>Registro</h2>
+
+<p>
+    @Html.ActionLink("Nuevo dispositivo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Serie
+        </th>
+        <th>
+            Color
+        </th>
+        <th>
+            Fabrica
+        </th>
+        <th>
+            Gama
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.no_serie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAT_COLOR.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAT_FABRICA.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAT_GAMA.descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

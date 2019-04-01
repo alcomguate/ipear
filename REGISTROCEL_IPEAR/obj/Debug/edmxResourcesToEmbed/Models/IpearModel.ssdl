@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IPEARModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CAT_CIUDAD">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pais" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAT_COLOR">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigo_html" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAT_FABRICA">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="pais" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ciudad" Type="smallint" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="telefonos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="orden" Type="smallint" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAT_GAMA">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="75" Nullable="false" />
+    <Property Name="costo_ensamblaje" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAT_PAIS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REG_DISPOSITIVO">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="no_serie" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="gama" Type="int" Nullable="false" />
+    <Property Name="color" Type="smallint" Nullable="false" />
+    <Property Name="fabrica_ensamblaje" Type="smallint" Nullable="false" />
+    <Property Name="costo_fabricacion_final" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+    <Property Name="fecha_in" Type="datetime" Nullable="false" />
+    <Property Name="usuario_in" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fech_mod" Type="datetime" />
+    <Property Name="usuario_mod" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_CAT_CIUDAD_CAT_PAIS">
+    <End Role="CAT_PAIS" Type="Self.CAT_PAIS" Multiplicity="1" />
+    <End Role="CAT_CIUDAD" Type="Self.CAT_CIUDAD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAT_PAIS">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CAT_CIUDAD">
+        <PropertyRef Name="pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAT_FABRICA_CAT_FABRICA">
+    <End Role="CAT_CIUDAD" Type="Self.CAT_CIUDAD" Multiplicity="1" />
+    <End Role="CAT_FABRICA" Type="Self.CAT_FABRICA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAT_CIUDAD">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CAT_FABRICA">
+        <PropertyRef Name="ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REG_DISPOSITIVO_CAT_COLOR">
+    <End Role="CAT_COLOR" Type="Self.CAT_COLOR" Multiplicity="1" />
+    <End Role="REG_DISPOSITIVO" Type="Self.REG_DISPOSITIVO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAT_COLOR">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="REG_DISPOSITIVO">
+        <PropertyRef Name="color" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REG_DISPOSITIVO_CAT_FABRICA">
+    <End Role="CAT_FABRICA" Type="Self.CAT_FABRICA" Multiplicity="1" />
+    <End Role="REG_DISPOSITIVO" Type="Self.REG_DISPOSITIVO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAT_FABRICA">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="REG_DISPOSITIVO">
+        <PropertyRef Name="fabrica_ensamblaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REG_DISPOSITIVO_CAT_GAMA">
+    <End Role="CAT_GAMA" Type="Self.CAT_GAMA" Multiplicity="1" />
+    <End Role="REG_DISPOSITIVO" Type="Self.REG_DISPOSITIVO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAT_GAMA">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="REG_DISPOSITIVO">
+        <PropertyRef Name="gama" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IPEARModelStoreContainer">
+    <EntitySet Name="CAT_CIUDAD" EntityType="Self.CAT_CIUDAD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAT_COLOR" EntityType="Self.CAT_COLOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAT_FABRICA" EntityType="Self.CAT_FABRICA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAT_GAMA" EntityType="Self.CAT_GAMA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAT_PAIS" EntityType="Self.CAT_PAIS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REG_DISPOSITIVO" EntityType="Self.REG_DISPOSITIVO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CAT_CIUDAD_CAT_PAIS" Association="Self.FK_CAT_CIUDAD_CAT_PAIS">
+      <End Role="CAT_PAIS" EntitySet="CAT_PAIS" />
+      <End Role="CAT_CIUDAD" EntitySet="CAT_CIUDAD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAT_FABRICA_CAT_FABRICA" Association="Self.FK_CAT_FABRICA_CAT_FABRICA">
+      <End Role="CAT_CIUDAD" EntitySet="CAT_CIUDAD" />
+      <End Role="CAT_FABRICA" EntitySet="CAT_FABRICA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REG_DISPOSITIVO_CAT_COLOR" Association="Self.FK_REG_DISPOSITIVO_CAT_COLOR">
+      <End Role="CAT_COLOR" EntitySet="CAT_COLOR" />
+      <End Role="REG_DISPOSITIVO" EntitySet="REG_DISPOSITIVO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REG_DISPOSITIVO_CAT_FABRICA" Association="Self.FK_REG_DISPOSITIVO_CAT_FABRICA">
+      <End Role="CAT_FABRICA" EntitySet="CAT_FABRICA" />
+      <End Role="REG_DISPOSITIVO" EntitySet="REG_DISPOSITIVO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REG_DISPOSITIVO_CAT_GAMA" Association="Self.FK_REG_DISPOSITIVO_CAT_GAMA">
+      <End Role="CAT_GAMA" EntitySet="CAT_GAMA" />
+      <End Role="REG_DISPOSITIVO" EntitySet="REG_DISPOSITIVO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

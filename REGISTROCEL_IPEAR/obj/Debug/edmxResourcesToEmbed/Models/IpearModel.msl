@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IPEARModelStoreContainer" CdmEntityContainer="IPEAREntities">
+    <EntitySetMapping Name="CAT_CIUDAD">
+      <EntityTypeMapping TypeName="IPEARModel.CAT_CIUDAD">
+        <MappingFragment StoreEntitySet="CAT_CIUDAD">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAT_COLOR">
+      <EntityTypeMapping TypeName="IPEARModel.CAT_COLOR">
+        <MappingFragment StoreEntitySet="CAT_COLOR">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="codigo_html" ColumnName="codigo_html" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAT_FABRICA">
+      <EntityTypeMapping TypeName="IPEARModel.CAT_FABRICA">
+        <MappingFragment StoreEntitySet="CAT_FABRICA">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefonos" ColumnName="telefonos" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAT_GAMA">
+      <EntityTypeMapping TypeName="IPEARModel.CAT_GAMA">
+        <MappingFragment StoreEntitySet="CAT_GAMA">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="costo_ensamblaje" ColumnName="costo_ensamblaje" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAT_PAIS">
+      <EntityTypeMapping TypeName="IPEARModel.CAT_PAIS">
+        <MappingFragment StoreEntitySet="CAT_PAIS">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REG_DISPOSITIVO">
+      <EntityTypeMapping TypeName="IPEARModel.REG_DISPOSITIVO">
+        <MappingFragment StoreEntitySet="REG_DISPOSITIVO">
+          <ScalarProperty Name="usuario_mod" ColumnName="usuario_mod" />
+          <ScalarProperty Name="fech_mod" ColumnName="fech_mod" />
+          <ScalarProperty Name="usuario_in" ColumnName="usuario_in" />
+          <ScalarProperty Name="fecha_in" ColumnName="fecha_in" />
+          <ScalarProperty Name="costo_fabricacion_final" ColumnName="costo_fabricacion_final" />
+          <ScalarProperty Name="fabrica_ensamblaje" ColumnName="fabrica_ensamblaje" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="gama" ColumnName="gama" />
+          <ScalarProperty Name="no_serie" ColumnName="no_serie" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
